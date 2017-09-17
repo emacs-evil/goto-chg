@@ -21,6 +21,7 @@
 ;;-------------------------------------------------------------------
 ;;
 ;; Author: David Andersson <l.david.andersson(at)sverige.nu>
+;; Maintainer: Vasilij Schneidermann <v.schneidermann@github.com>
 ;; Created: 16 May 2002
 ;; Version: 1.7
 ;; Keywords: convenience, matching
