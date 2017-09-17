@@ -22,7 +22,7 @@
 ;;
 ;; Author: David Andersson <l.david.andersson(at)sverige.nu>
 ;; Created: 16 May 2002
-;; Version: 1.6
+;; Version: 1.7
 ;; Keywords: convenience, matching
 ;;
 ;;; Commentary:
@@ -48,6 +48,9 @@
 ;;--------------------------------------------------------------------
 ;; History
 ;;
+;; Ver 1.7 2017-09-17 Vasilij Schneidermann
+;;    Make it work with undo-tree-mode (see
+;;    <https://github.com/martinp26/goto-chg>)
 ;; Ver 1.6 2013-12-12 David Andersson
 ;;    Add keywords; Cleanup comments
 ;; Ver 1.5 2013-12-11 David Andersson
