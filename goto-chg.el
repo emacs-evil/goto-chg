@@ -23,7 +23,7 @@
 ;; Author: David Andersson <l.david.andersson(at)sverige.nu>
 ;; Maintainer: Vasilij Schneidermann <v.schneidermann@github.com>
 ;; Created: 16 May 2002
-;; Version: 1.7
+;; Version: 1.7.1
 ;; Keywords: convenience, matching
 ;;
 ;;; Commentary:
@@ -49,6 +49,8 @@
 ;;--------------------------------------------------------------------
 ;; History
 ;;
+;; Ver 1.7.1 2017-12-31 Vasilij Schneidermann
+;;    Fix byte-compiler warnings
 ;; Ver 1.7 2017-09-17 Vasilij Schneidermann
 ;;    Make it work with undo-tree-mode (see
 ;;    <https://github.com/martinp26/goto-chg>)
