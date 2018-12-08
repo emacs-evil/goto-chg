@@ -212,6 +212,7 @@ that is, it was previously saved or unchanged. Nil otherwise."
   (and (listp e) (eq (car e) t)))
 
 (defvar buffer-undo-tree)
+(declare-function undo-list-transfer-to-tree "undo-tree.el")
 (declare-function undo-tree-current "undo-tree.el")
 (declare-function undo-tree-node-undo "undo-tree.el")
 (declare-function undo-tree-node-previous "undo-tree.el")
@@ -296,6 +297,7 @@ discarded. See variable `undo-limit'."
                   ((or passed-save-entry (glc-is-filetime (car l)))
                    (setq passed-save-entry t)))
             (setq l (cdr l)))
+        (undo-list-transfer-to-tree)
         (when (not glc-seen-canary)
           (while (and (not (null l)) (not glc-seen-canary) (< n new-probe-depth))
             (cond ((eq 'undo-tree-canary (car l))  ; used by buffer-undo-tree
