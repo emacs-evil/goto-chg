@@ -214,6 +214,7 @@ that is, it was previously saved or unchanged. Nil otherwise."
 (defvar buffer-undo-tree)
 (declare-function undo-list-transfer-to-tree "undo-tree.el")
 (declare-function undo-tree-current "undo-tree.el")
+(declare-function undo-tree-node-p"undo-tree.el")
 (declare-function undo-tree-node-undo "undo-tree.el")
 (declare-function undo-tree-node-previous "undo-tree.el")
 
@@ -312,7 +313,7 @@ discarded. See variable `undo-limit'."
             (when (not glc-seen-canary)
               (setq l (cdr l)))))
         (when glc-seen-canary
-          (while (< n new-probe-depth)
+          (while (and (< n new-probe-depth) (undo-tree-node-p l))
             (cond ((null l)
                    ;(setq this-command t)	; Disrupt repeat sequence
                    (error "No further change info"))
