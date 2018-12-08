@@ -248,7 +248,7 @@ discarded. See variable `undo-limit'."
                glc-current-span glc-default-span)
          (if (< (prefix-numeric-value arg) 0)
              (error "Negative arg: Cannot reverse as the first operation"))))
-  (cond ((null buffer-undo-list)
+  (cond ((and (null buffer-undo-list) (null buffer-undo-tree))
          (error "Buffer has not been changed"))
         ((eq buffer-undo-list t)
          (error "No change info (undo is disabled)")))
