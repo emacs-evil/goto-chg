@@ -214,7 +214,7 @@ that is, it was previously saved or unchanged. Nil otherwise."
 (defvar buffer-undo-tree)
 (declare-function undo-list-transfer-to-tree "undo-tree.el")
 (declare-function undo-tree-current "undo-tree.el")
-(declare-function undo-tree-node-p"undo-tree.el")
+(declare-function undo-tree-node-p "undo-tree.el")
 (declare-function undo-tree-node-undo "undo-tree.el")
 (declare-function undo-tree-node-previous "undo-tree.el")
 
