@@ -23,7 +23,7 @@
 ;; Author: David Andersson <l.david.andersson(at)sverige.nu>
 ;; Maintainer: Vasilij Schneidermann <v.schneidermann@github.com>
 ;; Created: 16 May 2002
-;; Version: 1.7.2
+;; Version: 1.7.3
 ;; Keywords: convenience, matching
 ;; URL: https://github.com/emacs-evil/goto-chg
 ;;
@@ -50,6 +50,8 @@
 ;;--------------------------------------------------------------------
 ;; History
 ;;
+;; Ver 1.7.3 2019-01-07 Vasilij Schneidermann
+;;    Fix errors when used with persistent undo
 ;; Ver 1.7.2 2018-01-05 Vasilij Schneidermann
 ;;    Fix byte-compiler warnings again
 ;; Ver 1.7.1 2017-12-31 Vasilij Schneidermann
