@@ -97,6 +97,8 @@
 
 ;;; Code:
 
+(require 'undo-tree nil t)
+
 (defvar glc-default-span 8 "*goto-last-change don't visit the same point twice. glc-default-span tells how far around a visited point not to visit again.")
 (defvar glc-current-span 8 "Internal for goto-last-change.\nA copy of glc-default-span or the ARG passed to goto-last-change.")
 (defvar glc-probe-depth 0 "Internal for goto-last-change.\nIt is non-zero between successive goto-last-change.")
@@ -212,13 +214,6 @@ Return nil if E represents no real change.
   "Return t if E indicates a buffer became \"modified\",
 that is, it was previously saved or unchanged. Nil otherwise."
   (and (listp e) (eq (car e) t)))
-
-(defvar buffer-undo-tree)
-(declare-function undo-list-transfer-to-tree "undo-tree.el")
-(declare-function undo-tree-current "undo-tree.el")
-(declare-function undo-tree-node-p "undo-tree.el")
-(declare-function undo-tree-node-undo "undo-tree.el")
-(declare-function undo-tree-node-previous "undo-tree.el")
 
 ;;;###autoload
 (defun goto-last-change (arg)
