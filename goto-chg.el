@@ -21,7 +21,7 @@
 ;;-------------------------------------------------------------------
 ;;
 ;; Author: David Andersson <l.david.andersson(at)sverige.nu>
-;; Maintainer: Vasilij Schneidermann <v.schneidermann@gmail.com>
+;; Maintainer: Vasilij Schneidermann <mail@vasilij.de>
 ;; Created: 16 May 2002
 ;; Version: 1.7.3
 ;; Package-Requires: ((undo-tree "0.1.3"))
