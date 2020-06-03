@@ -107,6 +107,19 @@
 
 ;;todo: Find begin and end of line, then use it somewhere
 
+(defun glc-fixup-edit (e)
+  "Convert an Emacs 27.1-style combined change to a regular edit."
+  (when (and (consp e)
+             (eq (car e) 'apply)
+             (not (functionp (cadr e)))
+             (eq (nth 4 e) 'undo--wrap-and-run-primitive-undo))
+    (let ((args (last e)))
+      (when (and (consp args) (= (length args) 1)
+                 (consp (car args)) (= (length (car args)) 1)
+                 (consp (caar args)) (numberp (car (caar args))) (numberp (cdr (caar args))))
+        (setq e (caar args)))))
+  e)
+
 (defun glc-center-ellipsis (str maxlen &optional ellipsis)
   "Truncate STRING in the middle to length MAXLEN.
 If STRING is max MAXLEN just return the string.
@@ -141,6 +154,7 @@ Exception: return nil if POS is closer than `glc-current-span' to the edit E.
 \nInsertion edits before POS returns a larger value.
 Deletion edits before POS returns a smaller value.
 \nThe edit E is an entry from the `buffer-undo-list'. See for details."
+  (setq e (glc-fixup-edit e))
   (cond ((atom e)                       ; nil==cmd boundary, or, num==changed pos
          pos)
         ((numberp (car e))              ; (beg . end)==insertion
@@ -176,6 +190,7 @@ or nil if the point was closer than `glc-current-span' to some edit in R.
   "If E represents an edit, return a position value in E, the position
 where the edit took place. Return nil if E represents no real change.
 \nE is an entry in the buffer-undo-list."
+  (setq e (glc-fixup-edit e))
   (cond ((numberp e) e)                 ; num==changed position
         ((atom e) nil)                  ; nil==command boundary
         ((numberp (car e)) (cdr e))     ; (beg . end)==insertion
@@ -188,6 +203,7 @@ where the edit took place. Return nil if E represents no real change.
   "If E represents an edit, return a short string describing E.
 Return nil if E represents no real change.
 \nE is an entry in the buffer-undo-list."
+  (setq e (glc-fixup-edit e))
   (let ((nn (or (format "T-%d: " n) "")))
     (cond ((numberp e) "New position")  ; num==changed position
           ((atom e) nil)                ; nil==command boundary
