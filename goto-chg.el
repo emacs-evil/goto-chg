@@ -96,6 +96,8 @@
 ;;--------------------------------------------------------------------
 
 ;;; Code:
+(eval-when-compile
+  (require 'undo-tree))
 
 (defvar glc-default-span 8 "*goto-last-change don't visit the same point twice. glc-default-span tells how far around a visited point not to visit again.")
 (defvar glc-current-span 8 "Internal for goto-last-change.\nA copy of glc-default-span or the ARG passed to goto-last-change.")
