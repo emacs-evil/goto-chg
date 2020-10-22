@@ -97,6 +97,8 @@
 
 ;;; Code:
 
+(require 'undo-tree nil t)
+
 (defvar glc-default-span 8 "*goto-last-change don't visit the same point twice. glc-default-span tells how far around a visited point not to visit again.")
 (defvar glc-current-span 8 "Internal for goto-last-change.\nA copy of glc-default-span or the ARG passed to goto-last-change.")
 (defvar glc-probe-depth 0 "Internal for goto-last-change.\nIt is non-zero between successive goto-last-change.")
@@ -268,7 +270,9 @@ discarded. See variable `undo-limit'."
                glc-current-span glc-default-span)
          (if (< (prefix-numeric-value arg) 0)
              (error "Negative arg: Cannot reverse as the first operation"))))
-  (cond ((and (null buffer-undo-list) (null buffer-undo-tree))
+  (cond ((and (null buffer-undo-list)
+              (or (not (boundp 'buffer-undo-tree))
+                  (null buffer-undo-tree)))
          (error "Buffer has not been changed"))
         ((eq buffer-undo-list t)
          (error "No change info (undo is disabled)")))
