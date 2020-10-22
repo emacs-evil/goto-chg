@@ -231,11 +231,10 @@ Return nil if E represents no real change.
 that is, it was previously saved or unchanged. Nil otherwise."
   (and (listp e) (eq (car e) t)))
 
-(declare-function undo-tree-current "undo-tree")
-(declare-function undo-tree-node-p "undo-tree")
-(declare-function undo-tree-node-previous "undo-tree")
-(declare-function undo-tree-node-undo "undo-tree")
-(declare-function undo-list-transfer-to-tree "undo-tree")
+(declare-function undo-tree-current "ext:undo-tree")
+(declare-function undo-tree-node-previous "ext:undo-tree")
+(declare-function undo-tree-node-undo "ext:undo-tree")
+(declare-function undo-list-transfer-to-tree "ext:undo-tree")
 (defvar buffer-undo-tree)
 
 ;;;###autoload
@@ -335,7 +334,7 @@ discarded. See variable `undo-limit'."
             (when (not glc-seen-canary)
               (setq l (cdr l)))))
         (when glc-seen-canary
-          (while (and (< n new-probe-depth) (undo-tree-node-p l))
+          (while (and (< n new-probe-depth) (eval '(undo-tree-node-p l)))
             (cond ((null l)
                    ;(setq this-command t)	; Disrupt repeat sequence
                    (error "No further change info"))
