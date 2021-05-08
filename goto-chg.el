@@ -1,4 +1,4 @@
-;;; goto-chg.el --- goto last change
+;;; goto-chg.el --- Go to last change
 ;;--------------------------------------------------------------------
 ;;
 ;; Copyright (C) 2002-2008,2013 David Andersson
@@ -23,7 +23,7 @@
 ;; Author: David Andersson <l.david.andersson(at)sverige.nu>
 ;; Maintainer: Vasilij Schneidermann <mail@vasilij.de>
 ;; Created: 16 May 2002
-;; Version: 1.7.3
+;; Version: 1.7.4
 ;; Keywords: convenience, matching
 ;; URL: https://github.com/emacs-evil/goto-chg
 ;;
@@ -50,6 +50,8 @@
 ;;--------------------------------------------------------------------
 ;; History
 ;;
+;; Ver 1.7.4 2020-10-08 Vasilij Schneidermann
+;;    Remove hard dependency on undo-tree
 ;; Ver 1.7.3 2019-01-07 Vasilij Schneidermann
 ;;    Fix errors when used with persistent undo
 ;; Ver 1.7.2 2018-01-05 Vasilij Schneidermann
