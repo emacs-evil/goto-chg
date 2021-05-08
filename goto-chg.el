@@ -24,6 +24,7 @@
 ;; Maintainer: Vasilij Schneidermann <mail@vasilij.de>
 ;; Created: 16 May 2002
 ;; Version: 1.7.4
+;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: convenience, matching
 ;; URL: https://github.com/emacs-evil/goto-chg
 ;;
