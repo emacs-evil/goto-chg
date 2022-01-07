@@ -21,7 +21,7 @@
 ;; Author: David Andersson <l.david.andersson(at)sverige.nu>
 ;; Maintainer: Vasilij Schneidermann <mail@vasilij.de>
 ;; Created: 16 May 2002
-;; Version: 1.7.4
+;; Version: 1.7.5
 ;; Package-Requires: ((emacs "24.1"))
 ;; Keywords: convenience, matching
 ;; URL: https://github.com/emacs-evil/goto-chg
@@ -49,6 +49,8 @@
 ;;--------------------------------------------------------------------
 ;; History
 ;;
+;; Ver 1.7.5 2022-01-04 Axel Foesman, Stefan Kangas
+;;    Consider all entries in undo-tree changesets, bump license to GPL3+
 ;; Ver 1.7.4 2020-10-08 Vasilij Schneidermann
 ;;    Remove hard dependency on undo-tree
 ;; Ver 1.7.3 2019-01-07 Vasilij Schneidermann
